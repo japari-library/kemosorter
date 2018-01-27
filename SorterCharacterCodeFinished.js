@@ -236,7 +236,7 @@ var ary_CharacterData = [
 [1, "Arctic Tern" , 		[0,1,0,0,0], "qw3blyn.png"],
 [1, "Black Mamba" , 		[0,1,0,0,0], "ciQsshW.png"],
 [1, "Boomslang" , 		[0,1,0,0,0], "42D31Qf.png"],
-[1, "Komodo Dragon" , 	[0,1,0,0,0], "tlHELeu.png"],
+[1, "Komodo Dragon" , 	[0,1,0,0,0], "icdPVRv.png"],
 [1, "Dugong" , 		[0,1,0,0,0], "OmZp3at.png"],
 [1, "Mountain Goat" , 		[0,1,0,0,0], "aaYxLsF.png"],
 [1, "Siberian Tiger" , 		[0,1,0,0,0], "v3vJA9F.png"],
