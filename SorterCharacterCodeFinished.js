@@ -377,7 +377,7 @@ var ary_CharacterData = [
 [1, "Mandrill" , 		[0,1,0,0,0], "2r1XKgk.png"],
 [1, "Common Chimpanzee" , 	[0,1,0,0,0], "2MhKluk.png"],
 [1, "Western Gorilla" , 		[0,1,0,0,0], "Wriitdp.png"],
-[1, "Borean Orangutan" , 	[0,1,0,0,0], "WVBBJ7p.png"],
+[1, "Bornean Orangutan" , 	[0,1,0,0,0], "WVBBJ7p.png"],
 [1, "Golden Lion Tamarin" , 	[0,1,0,0,0], "4pyQVej.png"],
 [1, "Japanese Squirrel" , 	[0,1,0,0,0], "TntqCjJ.png"],
 [1, "Nilgai" , 		[0,1,0,0,0], "3ck00Fp.png"],
