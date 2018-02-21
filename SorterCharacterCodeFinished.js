@@ -16,7 +16,7 @@ var bln_ProgessBar = 1;
  
 var int_Colspan = 3;
 
-var fldDefaultText = "Click Here to Start!"
+var fldDefaultText = ""
 
 var ary_TitleData = [
 "Anime Friends",
