@@ -105,7 +105,7 @@ var ary_CharacterData = [
 [1, "Lion",                             	[1,1,0,0,0], "LeUbdP6.png"],
 // **************************Begin Nexon Friends*************************************************
 [1, "Koala" , 		[0,1,0,0,0], "mQLwC7H.png"],
-[1, "Tiger" , 		[0,1,0,0,0], "UfqarEY.png"],
+[1, "Bengal Tiger" , 		[0,1,0,0,0], "UfqarEY.png"],
 [1, "Japanese River Otter" , 	[0,1,0,0,0], "rfHtJtI.png"],
 [1, "Black Rhinoceros" , 	[0,1,0,0,0], "RWV8v3T.png"],
 [1, "Cheetah" , 		[0,1,0,0,0], "TJpOLMp.png"],
