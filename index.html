@@ -5,6 +5,7 @@
     <script src="./SorterCharacterCodeFinished.js" type="text/javascript"></script>
     <script src="./mod_k-factory.js"></script>
     <script src="./fnc_main_v4.js"></script>
+    <script src="./pako.js"></script>
     <link rel="stylesheet" type="text/css" href="./stylesheet.css">
     <title>Kemono Friends Sorter</title>
 </head>
@@ -14,8 +15,13 @@
     <div align="center">
         <table id="mainTable">
             <thead>
+                </tr>
                 <tr>
-                    <td colspan="9" class="tb_header">Battle No.
+                    <td colspan="9" class="tb_header">
+                        Sharable Link: <input type="text" id="lblProgress" readonly="readonly"> <input type="button" onclick="fnc_save()" value="Save Progress & Copy to Clipboard"/>
+                        <br>
+                        <br>
+                        Battle No.
                         <span id="lblCount">-</span>
                         <br>
                         <span id="lblProgress">0</span>% sorted.
