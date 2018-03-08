@@ -417,7 +417,7 @@ var ary_CharacterData = [
 [1, "Chestnut Horse" , 		[0,0,1,1,0], "a7zUChR.png"],
 [1, "Chicken" , 		[0,0,1,0,0], "Tl65XME.png"],
 [1, "Chinstrap Penguin" , 	[0,0,1,0,0], "yQcCyq2.png"],
-[1, "Cinereous Vulture" , 	[0,0,1,0,0], "4nSp5GK.png"],
+[1, "Lappet-Faced Vulture" , 	[0,0,1,0,0], "4nSp5GK.png"],
 [1, "Commerson's Dolphin" , 	[0,0,1,0,0], "XQ0sXlQ.png"],
 [1, "Common Degu" , 		[0,0,1,0,0], "T3aTO3Y.png"],
 [1, "Daito Fruit Bat" , 		[0,0,1,0,0], "lBHrCOS.png"],
