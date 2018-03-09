@@ -448,6 +448,7 @@ var ary_CharacterData = [
 [1, "Tufted Puffin" , 		[0,0,1,0,0], "mg6hNkY.png"],
 [1, "White Horse" , 		[0,0,1,1,0], "I3aftWj.png"],
  [1, "Wolverine" , 		[0,0,1,0,0], "kbHTj3g.png"],
+  [1, "Patas Monkey" , 		[0,0,1,0,0], "16Fq73T.png"],
 //*******************************Begin Cross-Over Friends****************************************
 [1, "Shin Godzilla" , 		[0,0,0,1,0], "fFuE7ft.png"],
 [1, "Hi-no-Tori" , 		[0,0,0,1,0], "vYQMD8D.png"],
