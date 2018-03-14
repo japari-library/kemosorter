@@ -31,7 +31,7 @@
                     <td id="fldLeft" onClick="fnc_Sort(-1);" rowspan="2"><img src="https://i.imgur.com/zXpM9sm.png">
                     </td>
                     <td style="border: 0px; width: 7px;" rowspan="2"></td>
-                    <td id="fldMiddleT" onClick="fnc_Sort(0);">
+                    <td id="fldMiddleT" class="tieButton" onClick="fnc_Sort(0);">
                         <p>Tie!</p>
                         <td style="border: 0px; width: 7px;" rowspan="2"></td>
                         <td id="fldMiddleT" onClick="fnc_save();">
@@ -42,7 +42,7 @@
                         </td>
                 </tr>
                 <tr>
-                    <td id="fldMiddleB" onClick="fnc_Undo();">
+                    <td id="fldMiddleB" onClick="fnc_Undo();" class="undoButton">
                         <br>Undo Last Choice</p>
                     </td>
                     <td id="fldMiddleT" onClick="fnc_load();">
@@ -57,6 +57,12 @@
                             <span class="tb_header">Display images while sorting.
                                 </input>
                             </span>
+                            <td colspan="3">
+                            <input id="hardMode" type="checkbox" onclick="hardMode = !hardMode" autocomplete="off">
+                            <span class="tb_header" >Disable Tie and Undo
+                                </input>
+                            </span>
+                        </td>
                         </div>
                     </td>
                 </tr>
