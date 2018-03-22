@@ -54,7 +54,7 @@ var back_int_LeftID = int_LeftID;
 // Sorter Server related variables
 var sorter_results_url = "";
 var server_url = "https://kemofuresorter.herokuapp.com";
-//var server_url = "http://localhost:5000";
+// var server_url = "http://localhost:5000";
 
 // *****************************************************************************
 // * StartUp
@@ -751,7 +751,7 @@ function fnc_upload(force) {
     if(force || (int_Status == 2 && sorter_results_url == "")) {
         gID("sharableLink").value = "Saving results.. please wait";
 
-        $.post(server_url + "/upload", { data: ary_TempData, results: ary_SortData[0] }, function(resp) {
+        $.post(server_url + "/upload", { data: JSON.stringify(ary_TempData), results: JSON.stringify(ary_SortData[0]) }, function(resp) {
             if(resp.success) {
                 sorter_results_url = resp.code;
                 gID("sharableLink").value = window.location.href + "results?id=" + sorter_results_url;
