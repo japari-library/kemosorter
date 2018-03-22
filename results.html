@@ -54,7 +54,7 @@
                             // Display first 5 results
                             for(var i = 0; i < 5; i++) {
                                 $(".resTable tbody").first().append(sorter_top_template.render({
-                                    index: i,
+                                    index: i + 1,
                                     image: resp.sorter_results[i][1],
                                     name: resp.sorter_results[i][0]
                                 }));
@@ -66,7 +66,7 @@
                             for(var i = 4; i < 9; i++) {
                                 console.log(table.find("tbody"));
                                 table.find("tbody").append(sorter_top_template.render({
-                                    index: i,
+                                    index: i + 1,
                                     image: resp.sorter_results[i][1],
                                     name: resp.sorter_results[i][0]
                                 }));
