@@ -454,7 +454,7 @@ var ary_CharacterData = [
 [1, "Hi-no-Tori" , 		[0,0,0,1,0], "vYQMD8D.png"],
 [1, "Palcoarai-san2" , 		[0,0,0,1,0], "Q7z3SSb.png"],
 [1, "Palcoarai-san" , 		[0,0,0,1,0], "Z5qNmmb.png"],
-[1, "Rabbit Yukine" , 		[0,0,0,1,0], "nyLhTQx.png"],
+[1, "Rabbit Yukine" , 		[0,0,0,1,0], "nGQf1gy.png"],
 [1, "Shiserval Lefty" , 		[0,0,0,1,0], "YlfuK5N.png"],
 [1, "Shiserval Right" , 		[0,0,0,1,0], "dDdXc7e.png"],
 [1, "Valcoara" , 		[0,0,0,1,0], "CeVrQ1J.png"],
