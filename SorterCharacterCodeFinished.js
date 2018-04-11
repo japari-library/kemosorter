@@ -464,5 +464,5 @@ var ary_CharacterData = [
 [1, "Mirai" , 		[0,0,0,0,1], "L7rQ3Xb.png"],
 [1, "Nana" , 		[0,0,0,0,1], "IH77JeO.png"],
 [1, "Kako" , 		[0,0,0,0,1], "NMCiUXS.png"],
-[1, "Kaban" , 		[1,0,0,0,0], "aNSr0Kp.png"],
+[1, "Kaban" , 		[1,0,0,0,1], "aNSr0Kp.png"],
 ];
