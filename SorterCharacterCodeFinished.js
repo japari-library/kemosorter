@@ -134,7 +134,7 @@ var ary_CharacterData = [
 [1, "Spot-Billed Duck" , 	[0,1,0,0,0], "AI4kUj5.png"],
 [1, "Common Vampire Bat" , 	[0,1,0,0,0], "t4kjnS5.png"],
 [1, "Passenger Pigeon" , 	[0,1,0,0,0], "zXX6wNu.png"],
-[1, "California Sea Lion" , 	[0,1,0,0,0], "SOd5YVo.png"],
+[1, "California Sea Lion" , 	[0,1,0,0,0], "l1F5tUG.png"],
 [1, "Walrus" , 		[0,1,0,0,0], "RqUNvca.png"],
 [1, "American Bison" , 		[0,1,0,0,0], "XD41NJZ.png"],
 [1, "Impala" , 		[0,1,0,0,0], "0yf2T31.png"],
@@ -406,7 +406,7 @@ var ary_CharacterData = [
 [1, "Spotted Hyena" , 		[0,1,0,0,0], "vLqQGsJ.png"],
 [1, "Blue Whale" , 		[0,1,0,0,0], "sTyUlzO.png"],
 //*******************************Begin Post-Anime Friends****************************************
-[1, "Adélie Penguin" , 		[0,0,1,0,0], "T24tTk5.png"],
+[1, "Adélie Penguin" , 		[0,0,1,0,0], "4stFaZf.png"],
 [1, "Australian Brushturkey" , 	[0,0,1,0,0], "DbrpOGK.png"],
 [1, "Baird's Tapir" , 		[0,0,1,0,0], "fMz9USa.png"],
 [1, "Black Wildebeest" , 	[0,0,1,0,0], "Gj4IBWs.png"],
@@ -428,7 +428,7 @@ var ary_CharacterData = [
 [1, "Island Fox" , 		[0,0,1,0,0], "TEEWD2e.png"],
 [1, "King Penguin" , 		[0,0,1,0,0], "WoQ4DBQ.png"],
 [1, "Kinshachi" , 		[0,0,1,0,0], "X6SHqZZ.png"],
-[1, "Long-Tailed Tit" , 		[0,0,1,0,0], "t7pS0Hg.png"],
+[1, "Long-Tailed Tit" , 		[0,0,1,0,0], "g3Dgqri.png"],
 [1, "Macaw" , 		[0,0,1,0,0], "3d9Jc9H.png"],
 [1, "Masked Booby" , 		[0,0,1,0,0], "SLq7uy7.png"],
 [1, "Merlion" , 		[0,0,1,0,0], "TBZyat5.png"],
@@ -463,6 +463,6 @@ var ary_CharacterData = [
 //*******************************Begin Humans*************************************************
 [1, "Mirai" , 		[0,0,0,0,1], "L7rQ3Xb.png"],
 [1, "Nana" , 		[0,0,0,0,1], "IH77JeO.png"],
-[1, "Kako" , 		[0,0,0,0,1], "NMCiUXS.png"],
+[1, "Kako" , 		[0,0,0,0,1], "sLyZQNz.png"],
 [1, "Kaban" , 		[1,0,0,0,1], "aNSr0Kp.png"],
 ];
