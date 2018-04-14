@@ -458,6 +458,7 @@ var ary_CharacterData = [
 [1, "Shiserval Lefty" , 		[0,0,0,1,0], "YlfuK5N.png"],
 [1, "Shiserval Right" , 		[0,0,0,1,0], "dDdXc7e.png"],
 [1, "Valcoara" , 		[0,0,0,1,0], "CeVrQ1J.png"],
+[1, "White Ezo Red Fox" , 		[0,0,0,1,0], "Bfwl9oM.png"], 
 [1, "White Serval" , 		[0,0,0,1,0], "cnj0CLE.png"],
 [1, "Extra Serval" , 		[0,0,0,1,0], "Yu0Iknp.png"],
 //*******************************Begin Humans*************************************************
