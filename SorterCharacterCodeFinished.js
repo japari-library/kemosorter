@@ -161,7 +161,7 @@ var ary_CharacterData = [
 [1, "Southern Sea Otter" , 	[0,1,0,0,0], "wzG2AF0.png"],
 [1, "Geoffroy's Cat" , 		[0,1,0,0,0], "dIRxiGW.png"],
 [1, "Meerkat" , 		[0,1,0,0,0], "aw30xKu.png"],
-[1, "Mountain Tapir" , 		[0,1,0,0,0], "EuERo6P.png"],
+[1, "Mountain Tapir" , 		[0,1,0,0,0], "XcUzWTH.png"],
 [1, "Aye-Aye" , 		[0,1,0,0,0], "6Ds8moI.png"],
 [1, "Southern Cassowary" , 	[0,1,0,0,0], "9K9rY5x.png"],
 [1, "Smilodon" , 		[0,1,0,0,0], "SDuw8vl.png"],
