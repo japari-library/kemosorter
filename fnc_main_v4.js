@@ -503,7 +503,7 @@ function fnc_ShowData() {
             // Col[0]
             new_cell = new_row.insertCell(new_row.childNodes.length);
             sC(new_cell, 'resTableL');
-            new_cell.appendChild(cT(int_Result));
+            new_cell.appendChild(cT(i + 1));
 
             csort2[i] = int_Result; // v2a
 
