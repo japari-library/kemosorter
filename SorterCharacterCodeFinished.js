@@ -5,7 +5,7 @@
 str_CenterT = 'Tie!';
 str_CenterB = 'Undo Last Choice';
  
-str_ImgPath = 'http://i.imgur.com/';
+str_ImgPath = 'https://i.imgur.com/';
 var bln_ResultMode = 1;
 var int_ResultImg = 2;
 var int_ResultRank = 10;
