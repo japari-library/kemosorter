@@ -359,7 +359,7 @@ var ary_CharacterData = [
 [1, "Harpy Eagle" , 		[0,1,0,0,0], "ND6k3Xd.png"],
 [1, "Greater Roadrunner" , 	[0,1,0,0,0], "6FTsOak.png"],
 //*******************************************************************************************
-[1, "Secretarybird" , 		[0,1,0,0,0], "8UZ8eWu.png"],
+[1, "Secretarybird" , 		[0,1,0,0,0], "Wa4my9j.png"],
 [1, "Striated Caracara" , 	[0,1,0,0,0], "0DtMG6h.png"],
 [1, "Mediterranean Monk Seal" , 	[0,1,0,0,0], "uJYX1Am.png"],
 [1, "Steller's Sea Cow" , 	[0,1,0,0,0], "NS3C52e.png"],
@@ -374,7 +374,7 @@ var ary_CharacterData = [
 [1, "Ring-Tailed Lemur" , 	[0,1,0,0,0], "nppXmRY.png"],
 [1, "Indri" , 		                  [0,1,0,0,0], "6nrPp5r.png"],
 [1, "Venezuelan Red Howler" , 	[0,1,0,0,0], "AZxI2bO.png"],
-[1, "Mandrill" , 		[0,1,0,0,0], "2r1XKgk.png"],
+[1, "Mandrill" , 		[0,1,0,0,0], "7SmvPFB.png"],
 [1, "Common Chimpanzee" , 	[0,1,0,0,0], "2MhKluk.png"],
 [1, "Western Gorilla" , 		[0,1,0,0,0], "Wriitdp.png"],
 [1, "Bornean Orangutan" , 	[0,1,0,0,0], "WVBBJ7p.png"],
