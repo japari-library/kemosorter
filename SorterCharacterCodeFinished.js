@@ -148,7 +148,7 @@ var ary_CharacterData = [
 [1, "Japanese Boar" , 		[0,1,0,0,0], "WDF9mL4.png"],
 [1, "Masked Palm Civet" , 	[0,1,0,0,0], "Neug2rZ.png"],
 [1, "Japanese Badger" , 	[0,1,0,0,0], "EE1PUvd.png"],
-[1, "Egyptian Goose" , 		[0,1,0,0,0], "nlpSYRh.png"],
+[1, "Egyptian Goose" , 		[0,1,0,0,0], "jC7HKbS.png"],
 [1, "Emu" , 		                  [0,1,0,0,0], "LZC65CM.png"],
 [1, "Sable Antelope" , 		[0,1,0,0,0], "uEbaeOY.png"],
 [1, "Oriental Stork" , 		[0,1,0,0,0], "MMQMuQN.png"],
