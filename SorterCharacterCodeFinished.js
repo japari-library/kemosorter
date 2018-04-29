@@ -133,7 +133,7 @@ var ary_CharacterData = [
 [1, "Wild Bactrian Camel" , 	[0,1,0,0,0], "x2mSQwa.png"],
 [1, "Spot-Billed Duck" , 	[0,1,0,0,0], "AI4kUj5.png"],
 [1, "Common Vampire Bat" , 	[0,1,0,0,0], "t4kjnS5.png"],
-[1, "Passenger Pigeon" , 	[0,1,0,0,0], "zXX6wNu.png"],
+[1, "Passenger Pigeon" , 	[0,1,0,0,0], "segb8wS.png"],
 [1, "California Sea Lion" , 	[0,1,0,0,0], "l1F5tUG.png"],
 [1, "Walrus" , 		[0,1,0,0,0], "RqUNvca.png"],
 [1, "American Bison" , 		[0,1,0,0,0], "XD41NJZ.png"],
