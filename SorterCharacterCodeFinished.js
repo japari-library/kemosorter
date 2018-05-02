@@ -384,7 +384,7 @@ var ary_CharacterData = [
 [1, "Banteng" , 		[0,1,0,0,0], "KqJbktZ.png"],
 [1, "Northern Dwarf Siren" , 	[0,1,0,0,0], "1OR9fsn.png"],
 [1, "Hellbender" , 		[0,1,0,0,0], "H0VRxsP.png"],
-[1, "Sable" , 		[0,1,0,0,0], "kl4bvep.png"],
+[1, "Sable" , 		[0,1,0,0,0], "TpvSfmS.png"],
 [1, "Eastern Wolf" , 		[0,1,0,0,0], "TUm8kA7.png"],
 [1, "Tundra Wolf" , 		[0,1,0,0,0], "F6GCEq8.png"],
 [1, "Indian Wolf" , 		[0,1,0,0,0], "9MixRCl.png"],
