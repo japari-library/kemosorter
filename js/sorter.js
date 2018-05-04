@@ -49,7 +49,7 @@ let totalBattles = 0;
 let sorterURL = window.location.host + window.location.pathname;
 let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 
-let sorterDataSource = 'kemofuresorter.now.sh';
+let sorterDataSource = 'https://kemofuresorter.now.sh';
 let hardMode = false;
 
 function init() {
