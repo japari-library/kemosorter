@@ -606,8 +606,14 @@ function retrieveOnlineResults() {
 
     let code = getParameterByName('id') || undefined;
 
+    $('.sorter-loading').show();
+    // $('.sorter-loading').show();
+
     $.get(`${sorterDataSource}/api/result/${code}`)
-        .done(displayResult)
+        .done(resp => { 
+            $('.sorter-loading').hide();
+            displayResult(resp)
+        })
         .fail(err => {
             console.error(err);
             $('.message-container').append(message('Unable to retrieve sorter results', 'danger'));
