@@ -659,11 +659,16 @@ function populateOptions() {
  * @param {string} queryString
  */
 function decodeQuery(queryString = window.location.search.slice(1)) {
+    const code = clean(queryString);
+    const saveURL = `${location.protocol}//${sorterURL}?${code}`;
 
-    $('.message-container').append(message(`Loading online save.. please wait`, 'info'));
+    $('.message-container').append(message(`Loading Online Save <a href="${saveURL}" class="alert-link">${code}</a>`, 'info'));
 
-    return $.get(`${sorterDataSource}/api/save/${queryString}`)
-        .then(resp => { loadSave(resp) });
+    return $.get(`${sorterDataSource}/api/save/${code}`)
+        .then(resp => { loadSave(resp) })
+        .fail(err => {
+            $('.message-container').append(message(`Unable to load save <a href="${saveURL}" class="alert-link">${code}</a>`, 'danger'));
+        });
 }
 
 function loadSave(save) {
@@ -763,4 +768,8 @@ function message(html, type) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>`);
+}
+
+function clean(str) {
+    return str.replace(/[^a-zA-Z ]/g, '');
 }
