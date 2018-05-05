@@ -664,10 +664,18 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
 
     $('.message-container').append(message(`Loading Online Save <a href="${saveURL}" class="alert-link">${code}</a>`, 'info'));
 
+    let $error = message(`Unable to load save <a href="${saveURL}" class="alert-link">${code}</a>`, 'danger');
+
     return $.get(`${sorterDataSource}/api/save/${code}`)
-        .then(resp => { loadSave(resp) })
+        .done(resp => {
+            if(resp) {
+                loadSave(resp);
+            } else {
+                $('.message-container').append($error);
+            }
+        })
         .fail(err => {
-            $('.message-container').append(message(`Unable to load save <a href="${saveURL}" class="alert-link">${code}</a>`, 'danger'));
+            $('.message-container').append($error);
         });
 }
 
