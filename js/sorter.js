@@ -49,7 +49,8 @@ let totalBattles = 0;
 let sorterURL = window.location.host + window.location.pathname;
 let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 
-let sorterDataSource = 'https://kemofuresorter.now.sh';
+// let sorterDataSource = 'https://kemofuresorter.now.sh';
+let sorterDataSource = 'http://localhost:5000';
 let hardMode = false;
 
 function init() {
@@ -68,7 +69,7 @@ function init() {
         $('.sort-save').click(() => { saveProgress("Progress") });
         $('.sort-load').click(loadProgress);
 
-        $('#sorter-results-create').click(submitResults);
+        $('#sorter-results-create').click(uploadResults);
 
         // Setup Keyboard Shortcuts
         $(document).keypress(evt => {
@@ -110,7 +111,7 @@ function init() {
         $('.sorter').show();
     })
     .fail((err) => {
-        console.error(err);
+        console.error(err.responseText);
         $('.message-container').append(message('Unable to load Kemono Friends Sorter', 'danger'));
     });
 }
@@ -337,7 +338,7 @@ function displayResult(result) {
     $('.sorter-results').show();
 }
 
-function submitResults() {
+function uploadResults() {
     let tmp = finalCharacters.map(rank => { return { rank: rank.rank, character: rank.character._id }});
     let payload = {
         timestamp: timestamp,
@@ -541,17 +542,16 @@ function saveProgress(saveType) {
   
     if (saveType !== 'Autosave') {
 
-        $.post(`${sorterDataSource}/api/save`, { save: saveData }).then(resp => {
-            const saveURL = `${location.protocol}//${sorterURL}?${resp.name}`;
-            // const inProgressText = 'You may click Load after this to resume, or use this URL.';
-            // const finishedText = 'You may use this URL to share this result, or click Load Last Result to view it again.';
+        $('.message-container').append(message(`Uploading save.. it may take a while`, 'info'));
 
-            // window.prompt(saveType === 'Last Result' ? finishedText : inProgressText, saveURL);
+        $.post(`${sorterDataSource}/api/save`, { save: JSON.stringify(saveData) }).then(resp => {
+            const saveURL = `${location.protocol}//${sorterURL}?${resp.name}`;
+
             $('.message-container').append(message(`
                 Save successful! You may use this link to continue sorting: <a href="${saveURL}" class="alert-link">${resp.name}</a>
             `, 'success'));
         }).fail(err => {
-            console.error(err);
+            console.error(err.responseText);
             $('.message-container').append(message('Unable to save sorter progress online, you may still load the offline-copy of your save', 'danger'));
         });
     }
@@ -594,30 +594,37 @@ function generateSaveData() {
     }
 
     return save;
-    // const saveData = `${timestamp}|${timeTaken}|${dataSet}|${hardMode}|${choices}|${optStr}`;
-    // return LZString.compressToEncodedURIComponent(saveData);
   }
 
-function retrieveOnlineResults() {
+function retrieveSorterResults() {
     let getParameterByName = name => {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
 
-    let code = getParameterByName('id') || undefined;
+    let code = getParameterByName('id') || null;
+    let $error = message(`Unable to retrieve sorter results`, 'danger');
 
     $('.sorter-loading').show();
     // $('.sorter-loading').show();
 
-    $.get(`${sorterDataSource}/api/result/${code}`)
-        .done(resp => { 
-            $('.sorter-loading').hide();
-            displayResult(resp)
-        })
-        .fail(err => {
-            console.error(err);
-            $('.message-container').append(message('Unable to retrieve sorter results', 'danger'));
-        });
+    if(code) {
+        $.get(`${sorterDataSource}/api/result/${code}`)
+            .done(resp => { 
+                if(resp) {
+                    $('.sorter-loading').hide();
+                    displayResult(resp)
+                } else {
+                    $('.message-container').append($error);
+                }
+            })
+            .fail(err => {
+                console.error(err.responseText);
+                $('.message-container').append($error);
+            });
+    } else {
+        $('.message-container').append($error);
+    }
 }
 
 function retrieveSorterData() {
