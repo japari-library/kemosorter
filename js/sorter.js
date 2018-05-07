@@ -321,7 +321,7 @@ function displayResult(result) {
         }
 
         let character = rank.character;
-        let name = (character) ? character.name : '[UNKOWN]';
+        let name = (character) ? character.name : '[UNKNOWN]';
         let image = (character) ? character.image : 'https://i.imgur.com/zXpM9sm.png';
 
         if (imgCount-- > 0) {
