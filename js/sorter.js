@@ -351,7 +351,7 @@ function uploadResults() {
     if($display.val() == '') {
         $.post(`${sorterDataSource}/api/result`, { result: JSON.stringify(payload) })
             .done(resp => {
-                $('#sorter-results-url').val(`${sorterURL}results?id=${resp.name}`);
+                $('#sorter-results-url').val(`https://${sorterURL}results?id=${resp.name}`);
             })
             .fail(err => {
                 $('.message-container').append(message('Unable to create sharable results link, please try again', 'danger'));
@@ -545,7 +545,7 @@ function saveProgress(saveType) {
         $('.message-container').append(message(`Uploading save.. it may take a while`, 'info'));
 
         $.post(`${sorterDataSource}/api/save`, { save: JSON.stringify(saveData) }).then(resp => {
-            const saveURL = `${location.protocol}//${sorterURL}?${resp.name}`;
+            const saveURL = `https://${sorterURL}?${resp.name}`;
 
             $('.message-container').append(message(`
                 Save successful! You may use this link to continue sorting: <a href="${saveURL}" class="alert-link">${resp.name}</a>
