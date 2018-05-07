@@ -320,16 +320,20 @@ function displayResult(result) {
             count = 0;
         }
 
+        let character = rank.character;
+        let name = (character) ? character.name : '[UNKOWN]';
+        let image = (character) ? character.image : 'https://i.imgur.com/zXpM9sm.png';
+
         if (imgCount-- > 0) {
             $table.append(trCharImage.render({
                 order: rank.rank,
-                image: rank.character.image,
-                name: rank.character.name
+                image: image,
+                name: name
             }));
         } else {
             $table.append(trChar.render({
                 order: rank.rank,
-                name: rank.character.name
+                name: name
             }));
         }
     });
