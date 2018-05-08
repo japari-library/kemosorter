@@ -29,14 +29,10 @@
 
 .sort-left, .sort-right {
     /* max-width: 240px; */
+    min-height: 250px;
     margin: 0px 5px;
     white-space: normal !important;
     word-wrap: break-word !important;
-}
-
-.sorter .img-fluid {
-    max-width: 150px;
-    height: auto;
 }
 
 .sort p {
@@ -45,7 +41,7 @@
 }
 
 .sort-function.desktop .sort {
-    height: 80px;
+    height: 25%;
     width: 150px;
     margin-bottom: 5px;
 }
@@ -78,6 +74,11 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    .sorter .img-fluid {
+        min-width: 250px;
+        height: auto;
+    }
+
     .sorter-results-content {
         justify-content: center;
     }
@@ -89,6 +90,11 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+    .sorter .img-fluid {
+        max-width: 150px;
+        height: auto;
+    }
+
     .sorter-results-content {
         justify-content: left;
     }
