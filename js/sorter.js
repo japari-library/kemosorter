@@ -72,13 +72,13 @@ function init() {
         $('#sorter-results-create').click(uploadResults);
 
         // Setup Keyboard Shortcuts
-        $(document).keypress(evt => {
+        $(document).keyup(evt => {
             switch(evt.key) {
                 // case 's': case '3':                   saveProgress('Progress'); break;
-                case 'h': case 'ArrowLeft':           pick('left'); break;
-                case 'l': case 'ArrowRight':          pick('right'); break;
-                case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
-                case 'j': case '2': case 'ArrowDown': undo(); break;
+                case 'ArrowLeft':           pick('left'); break;
+                case 'ArrowRight':          pick('right'); break;
+                case 'ArrowUp':             pick('tie'); break;
+                case 'ArrowDown':           undo(); break;
                 default: break;
             }
         });
