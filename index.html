@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="og:site_name" content="Kemono Friends Sorter">
     <meta name="og:description" content="Discover your favourite friends from the Kemono Friends series">
-    <meta name="og:image" content="img/icon/japari-logo.png">
+    <meta name="og:image" content="https://japari-library.github.io/kemosorter/img/logo/japari-logo.png">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
@@ -88,21 +88,25 @@
                     <span id="character-count">0</span> friends, and will be updated to reflect future new friends!</p>
             </div>
         </div>
-        <div class="sorter-results">
-            <hr>
-            <h5 class="text-center">Results</h5>
-            <p class="lead text-center" id="sorter-results-info"></p>
+    </div>
 
-            <div class="input-group my-3">
-                <input type="text" id="sorter-results-url" class="form-control" placeholder="Click 'Create' to create a sharable url to share your results" readonly="readonly">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" id="sorter-results-create" type="button">Create</button>
-                </div>
-            </div>
-            <div class="sorter-results-content d-flex flex-wrap">
-                <!-- To be filled by results code -->
+    <div class="sorter-results mx-3">
+        <hr>
+        <h5 class="text-center">Results</h5>
+        <p class="lead text-center" id="sorter-results-info"></p>
+
+        <div class="input-group my-3">
+            <input type="text" id="sorter-results-url" class="form-control" placeholder="Click 'Create' to create a sharable url to share your results" readonly="readonly">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="sorter-results-create" type="button">Create</button>
             </div>
         </div>
+        <div class="sorter-results-content d-flex flex-wrap">
+            <!-- To be filled by results code -->
+        </div>
+    </div>
+
+    <div class="container">
         <hr>
         <div class="text-center">
             <p>This sorter uses a modified version of the <a href="https://github.com/execfera/charasort">Touhou Sorter script</a> created by Frelia, all credits belong to those creators</p>

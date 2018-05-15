@@ -50,8 +50,10 @@ let sorterURL = window.location.host + window.location.pathname;
 let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 
 let sorterDataSource = 'https://kemosorter.now.sh';
-// let sorterDataSource = 'http://localhost:5000';
+// let sorterDataSource = 'http://192.168.0.124:5000';
 let hardMode = false;
+
+const DEFAULT_CHAR_ID = "5af9d33d36712a3894efbb07";
 
 function init() {
     retrieveSorterData()
@@ -116,7 +118,7 @@ function init() {
     });
 }
 
-function start() {
+function start(characters = null) {
 
     // Clear messages
     $('.message-container').empty();
@@ -133,7 +135,7 @@ function start() {
     /** Convert boolean array form to string form. */
 
     characterDataToSort = characterData.filter(char => {
-        return char.categories.some(category => optTaken.includes(category));
+        return char.categories.some(category => optTaken.includes(category._id));
     });
 
     if (characterDataToSort.length < 2) {
@@ -146,10 +148,14 @@ function start() {
     // if (new Date(timestamp) < new Date(currentVersion)) { timeError = true; }
     Math.seedrandom(timestamp);
 
-    characterDataToSort = characterDataToSort
-        .map(a => [Math.random(), a])
-        .sort((a, b) => a[0] - b[0])
-        .map(a => a[1]);
+    if(characters) {
+        characterDataToSort = characters;
+    } else {
+        characterDataToSort = characterDataToSort
+            .map(a => [Math.random(), a])
+            .sort((a, b) => a[0] - b[0])
+            .map(a => a[1]);
+    }
 
     /**
      * tiedDataList will keep a record of indexes on which characters are equal (i.e. tied) 
@@ -208,7 +214,6 @@ function start() {
     
     preloadImages().then(() => {
         loading = false;
-        $('input[type=checkbox]').each((idx, element) => $(this).attr('disabled', 'disabled'));
         display();
     });
 }
@@ -321,19 +326,24 @@ function displayResult(result) {
         }
 
         let character = rank.character;
-        let name = (character) ? character.name : '[UNKNOWN]';
-        let image = (character) ? character.image : 'https://i.imgur.com/zXpM9sm.png';
+
+        if(!character) {
+            character = {
+                name: 'Missing No.',
+                image: 'https://vignette.wikia.nocookie.net/joke-battles/images/d/d8/MissingNo..png/revision/latest?cb=20160129051405'
+            };
+        }
 
         if (imgCount-- > 0) {
             $table.append(trCharImage.render({
                 order: rank.rank,
-                image: image,
-                name: name
+                name: character.name,
+                image: character.image
             }));
         } else {
             $table.append(trChar.render({
                 order: rank.rank,
-                name: name
+                name: character.name
             }));
         }
     });
@@ -355,7 +365,7 @@ function uploadResults() {
     if($display.val() == '') {
         $.post(`${sorterDataSource}/api/result`, { result: JSON.stringify(payload) })
             .done(resp => {
-                $('#sorter-results-url').val(`https://${sorterURL}results?id=${resp.name}`);
+                $('#sorter-results-url').val(`${location.protocol}//${sorterURL}results?id=${resp.name}`);
             })
             .fail(err => {
                 $('.message-container').append(message('Unable to create sharable results link, please try again', 'danger'));
@@ -549,7 +559,7 @@ function saveProgress(saveType) {
         $('.message-container').append(message(`Uploading save.. it may take a while`, 'info'));
 
         $.post(`${sorterDataSource}/api/save`, { save: JSON.stringify(saveData) }).then(resp => {
-            const saveURL = `https://${sorterURL}?${resp.name}`;
+            const saveURL = `${location.protocol}//${sorterURL}?${resp.name}`;
 
             $('.message-container').append(message(`
                 Save successful! You may use this link to continue sorting: <a href="${saveURL}" class="alert-link">${resp.name}</a>
@@ -568,6 +578,19 @@ function loadProgress() {
     const saveData = localStorage.getItem(`${sorterURL}_saveData`);
     if (saveData) {
         const save = JSON.parse(LZString.decompressFromEncodedURIComponent(saveData));
+
+        let corrupt = false;
+        let tmp = [];
+
+        save.characters.forEach((id, index) => {
+            let character = characterData.find(char => char._id == id);
+
+            if(character) {
+                tmp.push(character);
+            }
+        });
+
+        save.characters = tmp;
         loadSave(save);
     }
 }
@@ -596,6 +619,8 @@ function generateSaveData() {
         timestamp: timestamp,
         choices: choices
     }
+
+    console.log(save);
 
     return save;
   }
@@ -706,7 +731,9 @@ function loadSave(save) {
             $(`#cb-${id}`).prop('checked', true);
         });
 
-        start();
+        console.log(save);
+
+        start(characterDataToSort);
     }
 }
 
