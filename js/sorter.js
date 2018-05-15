@@ -135,7 +135,7 @@ function start(characters = null) {
     /** Convert boolean array form to string form. */
 
     characterDataToSort = characterData.filter(char => {
-        return char.categories.some(category => optTaken.includes(category._id));
+        return char.categories.some(category => optTaken.includes(category));
     });
 
     if (characterDataToSort.length < 2) {
