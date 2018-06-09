@@ -1,3 +1,8 @@
+/* p {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+} */
+
 .sorter-loading {
     display: flex;
     text-align: center;
@@ -33,6 +38,10 @@
     margin: 0px 5px;
     white-space: normal !important;
     word-wrap: break-word !important;
+}
+
+.sort-left *, .sort-right * {
+    width: 100%;
 }
 
 .sort p {
@@ -96,17 +105,22 @@
     }
 
     .sorter-results-content {
-        justify-content: left;
+        justify-content: left !important;
     }
 
     .sorter-results-content table {
         /* width: 25%; */
-        width: 300px;
+        width: 350px;
+    }
+
+    .sorter-results-content table {
+        font-size: 12px;
     }
  }
 
 .sorter-results thead {
     display: none;
+    /* opacity: 0; */
 }
 
 .sorter-results table:first-child thead {

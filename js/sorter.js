@@ -49,11 +49,13 @@ let totalBattles = 0;
 let sorterURL = window.location.host + window.location.pathname;
 let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 
+/** Temporary data */
+let results = [];
+
+let japariWikiURL = 'https://japari-library.com/wiki';
 let sorterDataSource = 'https://kemosorter.now.sh';
 // let sorterDataSource = 'http://192.168.0.124:5000';
 let hardMode = false;
-
-const DEFAULT_CHAR_ID = "5af9d33d36712a3894efbb07";
 
 function init() {
     retrieveSorterData()
@@ -62,8 +64,8 @@ function init() {
         populateOptions();
 
         // Set-up Sorter Buttons
-        $('.sort-left').click(() => { pick('left') });
-        $('.sort-right').click(() => { pick('right') });
+        $('.sort-left .pick').click(() => { pick('left') });
+        $('.sort-right .pick').click(() => { pick('right') });
 
         $('.sort-tie').click(() => { pick("tie") });
         $('.sort-undo').click(undo);
@@ -86,9 +88,9 @@ function init() {
         });
 
         // Shortcuts/Event Handling
-        $('#setting-hard').change(() => {
-            let $selector = $('.sort-tie, .sort-undo, .sort-save, .sort-load');
-            hardMode = !hardMode;
+        $('#setting-hard').change((evt) => {
+            let $selector = $('.sort-tie, .sort-undo');
+            hardMode = $(evt.target).is(':checked');
 
             if (hardMode) {
                 $selector.attr('disabled', 'disabled');
@@ -96,6 +98,8 @@ function init() {
                 $selector.removeAttr('disabled');
             }
         });
+
+        $('#setting-hard').change();
         
         // Select All Options
         $('#cb-option-select-all').change((evt) => {
@@ -234,6 +238,9 @@ function display() {
     $('.sort-left p').text(leftChar.name);
     $('.sort-right p').text(rightChar.name);
 
+    $('.sort-left a').attr('href', getJapariLibraryEntry(leftChar.name));
+    $('.sort-right a').attr('href', getJapariLibraryEntry(rightChar.name));
+
     /** Autopick if choice has been given. */
     if (choices.length !== battleNo - 1) {
         switch (Number(choices[battleNo - 1])) {
@@ -287,6 +294,7 @@ function result(imageNum = 10) {
 }
 
 function displayResult(result) {
+    results = result;
     // Template
     // <table class="table table-bordered text-center">
     //     <thead class="thead-dark">
@@ -303,9 +311,10 @@ function displayResult(result) {
     const IMAGE_NUM = 10; // Display only top 10 friends images
     const ROWS_PER_TABLE = 50; // Display 50 friends per table (Excluding 10 friends)
 
-    let table = $.templates('<table class="table table-bordered text-center"><thead class="thead-dark"><tr><th scope="col" width="10%">Rank</th><th scope="col" width="90%">Name</th></tr></thead><tbody></tbody></table>');
-    let trCharImage = $.templates('<tr><td class="align-middle">{{:order}}</td><td class="align-middle"><img src="{{:image}}" class="img-fluid"><p class="lead">{{:name}}</p></td></tr>');
-    let trChar = $.templates('<tr><td class="align-middle">{{:order}}</td><td class="align-middle"><p class="lead">{{:name}}</p></td></tr>');
+    // let table = $.templates('<table class="table table-bordered text-center"><thead class="thead-dark"><tr><th scope="col" width="10%">Rank</th><th scope="col" width="90%">Name</th></tr></thead><tbody></tbody></table>');
+    let table = $.templates('<table class="table table-bordered text-center"><tbody></tbody></table>');
+    let trCharImage = $.templates('<tr><td class="align-middle">{{:order}}</td><td class="align-middle"><img src="{{:image}}" class="img-fluid"><p class="lead"><a href="{{:url}}" target="_blank" class="text-dark">{{:name}}</a></p></td></tr>');
+    let trChar = $.templates('<tr><td class="align-middle">{{:order}}</td><td class="align-middle"><p class="lead"><a href="{{:url}}" target="_blank" class="text-dark">{{:name}}</a></p></td></tr>');
     let resultsInfo = `This sorter was completed on ${new Date(result.timestamp + result.duration).toString()} and took ${msToReadableTime(result.duration)}`;
 
     let $container = $('.sorter-results-content');
@@ -330,7 +339,8 @@ function displayResult(result) {
         if(!character) {
             character = {
                 name: 'Missing No.',
-                image: 'https://vignette.wikia.nocookie.net/joke-battles/images/d/d8/MissingNo..png/revision/latest?cb=20160129051405'
+                image: 'https://vignette.wikia.nocookie.net/joke-battles/images/d/d8/MissingNo..png/revision/latest?cb=20160129051405',
+                url: japariWikiURL
             };
         }
 
@@ -338,15 +348,51 @@ function displayResult(result) {
             $table.append(trCharImage.render({
                 order: rank.rank,
                 name: character.name,
-                image: character.image
+                image: character.image,
+                url: getJapariLibraryEntry(character.name)
             }));
         } else {
             $table.append(trChar.render({
                 order: rank.rank,
-                name: character.name
+                name: character.name,
+                url: getJapariLibraryEntry(character.name)
             }));
         }
     });
+    
+    // result.ranking.forEach((rank, idx) => {
+    //     if($table == null || ++count >= ROWS_PER_TABLE) {
+    //         $table = $(table.render());
+    //         $container.append($table);
+            
+    //         count = 0;
+    //     }
+
+    //     let character = rank.character;
+
+    //     if(!character) {
+    //         character = {
+    //             name: 'Missing No.',
+    //             image: 'https://vignette.wikia.nocookie.net/joke-battles/images/d/d8/MissingNo..png/revision/latest?cb=20160129051405',
+    //             url: japariWikiURL
+    //         };
+    //     }
+
+    //     $table.append(trCharImage.render({
+    //         order: rank.rank,
+    //         name: character.name,
+    //         image: character.image,
+    //         url: getJapariLibraryEntry(character.name)
+    //     }));
+    // });
+
+    // var maxHeight = 0;
+
+    // $('td').each(function() {
+    //     maxHeight = ($(this).height() > maxHeight ? $(this).height() : maxHeight); 
+    // })
+
+    // $('td').height(maxHeight);
 
     $('.sorter').hide();
     $('.sorter-results').show();
@@ -495,6 +541,7 @@ function pick(sortType) {
         progressBar(`Battle No. ${battleNo} - Completed!`, 100);
 
         result();
+        uploadResults();
     } else {
         battleNo++;
         display();
@@ -620,8 +667,6 @@ function generateSaveData() {
         choices: choices
     }
 
-    console.log(save);
-
     return save;
   }
 
@@ -642,7 +687,9 @@ function retrieveSorterResults() {
             .done(resp => { 
                 if(resp) {
                     $('.sorter-loading').hide();
-                    displayResult(resp)
+                    $('#sorter-results-link').attr('href', window.location.href);
+                    $('#sorter-results-link').text(code);
+                    displayResult(resp);
                 } else {
                     $('.message-container').append($error);
                 }
@@ -818,4 +865,14 @@ function message(html, type) {
 
 function clean(str) {
     return str.replace(/[^a-zA-Z ]/g, '');
+}
+
+/**
+ * Returns a url to japari library entry for friend
+ * 
+ * @param {string} character
+ */
+function getJapariLibraryEntry(character) {
+    let name = character.replace(' ', '_');
+    return `${japariWikiURL}/${name}`;
 }
