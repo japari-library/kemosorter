@@ -54,10 +54,14 @@ let results = [];
 
 let japariWikiURL = 'https://japari-library.com/wiki';
 let sorterDataSource = 'https://kemosorter.now.sh';
+// let sorterDataSource = 'http://128.199.240.184';
 // let sorterDataSource = 'http://192.168.0.124:5000';
 let hardMode = false;
 
 function init() {
+
+    $('[data-toggle="tooltip"]').tooltip();
+
     retrieveSorterData()
     .then(() => {
         // Set-up Options
@@ -235,11 +239,42 @@ function display() {
     $('.sort-left img').attr('src', leftChar.image);
     $('.sort-right img').attr('src', rightChar.image);
 
-    $('.sort-left p').text(leftChar.name);
-    $('.sort-right p').text(rightChar.name);
+    $('.sort-left  .title').text(leftChar.name);
+    $('.sort-right .title').text(rightChar.name);
 
-    $('.sort-left a').attr('href', getJapariLibraryEntry(leftChar.name));
-    $('.sort-right a').attr('href', getJapariLibraryEntry(rightChar.name));
+    $('.sort-left .btn-play').unbind('click');
+    $('.sort-right .btn-play').unbind('click');
+    
+    if(leftChar.introduction) {
+        $('.sort-left .btn-play').prop('disabled', '');
+        $('.sort-left .btn-play').click(() => { 
+            let audio = new Audio(leftChar.introduction.audio);
+            // audio.volume = $('#volume-slider').val() / 100;
+            audio.volume = 0.5;
+            audio.play();
+        });
+        $('.sort-left .description').text(leftChar.introduction.translation);
+    } else {
+        $('.sort-left .btn-play').prop('disabled', 'disabled');
+        $('.sort-left .description').text('');
+    }
+
+    if(rightChar.introduction) {
+        $('.sort-right .btn-play').prop('disabled', '');
+        $('.sort-right .btn-play').click(() => {
+            let audio = new Audio(rightChar.introduction.audio);
+            // audio.volume = $('#volume-slider').val() / 100;
+            audio.volume = 0.5;
+            audio.play();
+        });
+        $('.sort-right .description').text(rightChar.introduction.translation);
+    } else {
+        $('.sort-right .btn-play').prop('disabled', 'disabled');
+        $('.sort-right .description').text('');
+    }
+
+    $('.sort-left .btn-wiki').attr('href', getJapariLibraryEntry(leftChar.name));
+    $('.sort-right .btn-wiki').attr('href', getJapariLibraryEntry(rightChar.name));
 
     /** Autopick if choice has been given. */
     if (choices.length !== battleNo - 1) {
