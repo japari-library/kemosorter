@@ -37,6 +37,11 @@ function setCharacterFields(character) {
         $('#character-id').val(character._id);
         $('#character-name').val(character.name);
         $('#character-image').val(character.image);
+        
+        if(character.introduction) {
+            $('#character-audio').val(character.introduction.audio);
+            $('#character-line').val(character.introduction.translation);
+        }
 
         $(':checkbox').prop('checked', false);
 
@@ -118,14 +123,22 @@ function saveCharacter() {
     let id = $('#character-id').val();
     let name = $('#character-name').val();
     let image = $('#character-image').val();
-    let categories = $(':checked').map(function() { return $(this).val() }).get();;
+    let categories = $(':checked').map(function() { return $(this).val() }).get();
+    let introduction = null;
+
+    if($('#character-audio, #character-line').filter(function() { return $(this).val(); }).length > 0) {
+        introduction = {
+            audio: $('#character-audio').val(),
+            translation: $('#character-line').val()
+        };
+    }
 
     console.log(id, name, image, categories);
 
     if(id) {
         console.log('Updating Character');
 
-        $.ajax({ url: `${api}/api/character/${id}?token=${key}`, type: 'PUT', data: { name: name, image: image, categories: categories }})
+        $.ajax({ url: `${api}/api/character/${id}?token=${key}`, type: 'PUT', data: { name: name, image: image, introduction: introduction, categories: categories }})
             .then(() => {
                 $('.message-container').append(message(`Character updated successfully`, 'success'));
                 reloadData();

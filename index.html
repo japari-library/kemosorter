@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+        crossorigin="anonymous">
     <link rel="stylesheet" href="css/stylesheet.css">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -20,11 +22,6 @@
     <div class="container my-3">
         <div class="message-container">
             <!-- <div class="alert alert-danger">Unable to load the Kemono Friends Sorter</div> -->
-            <div class="alert alert-info d-none d-md-block alert-dismissible fade show" role="alert">Left Arrow: Pick Left, Right Arrow: Pick Right, Up Arrow: Tie, Down Arrow: Undo
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
         </div>
 
         <div class="sorter-loading">
@@ -33,18 +30,39 @@
         </div>
 
         <div class="sorter">
-            <p class="sorter-progress">Click on the Left, Right buttons to Start</p>
+            <!-- <div class="form-group volume-slider">
+                <label for="volume-slider"><i class="fas fa-volume-up "></i></label>
+                <input type="range" class="form-control-range" id="volume-slider" min="0" max="100" value="50" step="2">
+            </div> -->
+            <p class="sorter-progress">
+                This sort may take quite a bit of time to finish, so prepare some <a href="https://japari-library.com/wiki/Glossary#Japari_Buns" target="_blank">Japari Buns</a> for this <br/>
+                This sort contains a total of <span id="character-count">0</span> friends, and will be updated to reflect future new friends!<br/>
+                
+                <br/>
+
+                Click on the Left, Right buttons to Start <br/>
+                <span class="d-none d-md-block">Keyboard Shortcuts: <i class="fas fa-arrow-left"></i> Pick Left, <i class="fas fa-arrow-right"></i>: Pick Right, <i class="fas fa-arrow-up"></i>: Tie, <i class="fas fa-arrow-down"></i>: Undo<br/></span>
+                Click on <i class="fas fa-info"></i> to learn more about the friend<br/>
+                Click on <i class="fas fa-play"></i> to hear the friend's introduction lines (if any)</br>
+                If you can't choose between two Friends click "Tie!", if you've made a mistake, click "Undo"<br/>
+            </p>
             <div class="progress my-3">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="33" aria-valuemin="0"
                     aria-valuemax="100" style="width:0%">0%</div>
             </div>
-            <div class="row">
-                <div class="sort-left col">
-                    <button type="button" class="btn btn-light pick">
-                        <img src="https://i.imgur.com/zXpM9sm.png" class="img-fluid">
-                        <p class="lead text-center"></p>
-                    </button>
-                    <a class="btn btn-primary lead my-2 py-2" target="_blank" href="https://japari-library.com/wiki/Main_Page">View Japari Library Entry</a>
+            <div class="sorter-picker">
+                <div class="sort-left">
+                    <div class="pick">
+                        <img src="img/placeholder.png" class="img-fluid">
+                        <div class="friend-info">
+                            <p class="lead text-center mb-0 title"></p>
+                            <p class="text-center font-italic description"> "P-Please don't eat me!" -Kaban</p>
+                        </div>
+                    </div>
+                    <div class="picker-buttons">
+                        <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
+                        <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
+                    </div>
                 </div>
                 <div class="sort-function desktop d-none d-md-block">
                     <div class="d-flex flex-column justify-content-between" style="height: 100%;">
@@ -54,12 +72,18 @@
                         <button type="button" class="sort sort-load btn btn-danger">Load</button>
                     </div>
                 </div>
-                <div class="sort-right col">
-                    <button type="button" class="btn btn-light pick">
-                        <img src="https://i.imgur.com/zXpM9sm.png" class="img-fluid">
-                        <p class="lead text-center"></p>
-                    </button>
-                    <a class="btn btn-primary lead my-2 py-2" target="_blank" href="https://japari-library.com/wiki/Main_Page">View Japari Library Entry</a>
+                <div class="sort-right">
+                    <div class="pick">
+                        <img src="img/placeholder.png" class="img-fluid">
+                        <div class="friend-info">
+                            <p class="lead text-center mb-0 title"></p>
+                            <p class="text-center font-italic description"> "I won't eat you!" -Serval</p>
+                        </div>
+                    </div>
+                    <div class="picker-buttons">
+                        <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
+                        <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="sort-function mobile d-md-none">
@@ -85,13 +109,6 @@
                 <div class="sorter-options">
                     <!-- To be filled by code/server -->
                 </div>
-            </div>
-            <div class="section text-center">
-                <p>Sorter for Kemono Friends characters. Pick your favourite friends!</p>
-                <p>If you can't choose between two Friends click "Tie!", if you've made a mistake, click "Undo"</p>
-                <p>This sort may take quite a bit of time to finish normally, so set aside a good few cups of tea for this</p>
-                <p>This sort contains a total of
-                    <span id="character-count">0</span> friends, and will be updated to reflect future new friends!</p>
             </div>
         </div>
     </div>
