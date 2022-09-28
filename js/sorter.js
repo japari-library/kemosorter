@@ -53,7 +53,7 @@ let storedSaveType = localStorage.getItem(`${sorterURL}_saveType`);
 let results = [];
 
 let japariWikiURL = 'https://japari-library.com/wiki';
-let sorterDataSource = 'https://kemofuresorter.herokuapp.com';
+let sorterDataSource = 'https://kemosorter-server.onrender.com';
 // let sorterDataSource = 'http://localhost:80';
 let hardMode = false;
 
