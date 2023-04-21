@@ -17,27 +17,34 @@
 </head>
 
 <body class="mx-3">
-    <!-- <div class="container my-3"> -->
-        <div class="message-container">
-            <!-- <div class="alert alert-danger">Unable to load the Kemono Friends Sorter</div> -->
-        </div>
+    <div class="position-fixed fixed-top fixed-bottom d-flex flex-column justify-content-center align-items-center" style="transform: translateY(-135px);">
+        <img class="img-fluid logo my-5" src="img/logo/japari-logo.png">
+        <h1 class="display-4 lead text-center">We'll be back soon!</h1>
+        <p class="lead text-center mb-0">We're performing maintenance at the moment.</p>
+    </div>
+    <main style="display:none">
         <div class="sorter-loading">
             <img class="img-fluid logo my-5" src="img/logo/japari-logo.png">
             <!-- <h3 class="">Loading</h3> -->
         </div>
-        <div class="sorter-results">
-            <h5 class="text-center my-3">Results</h5>
-            <p class="lead text-center">Your sharable results link is '<a class="lead text-center" id="sorter-results-link" href="#"></a>'</p>
-            <p class="lead text-center" id="sorter-results-info"></p>
-
-            <div class="sorter-results-content d-flex flex-wrap justify-content-md-center">
-                <!-- To be filled by results code -->
+        <!-- <div class="container my-3"> -->
+            <div class="message-container">
+                <!-- <div class="alert alert-danger">Unable to load the Kemono Friends Sorter</div> -->
             </div>
-        </div>
-        <hr>
-        <div class="text-center">
-            <p>This sorter uses a modified version of the <a href="https://github.com/execfera/charasort">Touhou Sorter script</a> created by Frelia, all credits belong to those creators</p>
-        </div>
+            <div class="sorter-results">
+                <h5 class="text-center my-3">Results</h5>
+                <p class="lead text-center">Your sharable results link is '<a class="lead text-center" id="sorter-results-link" href="#"></a>'</p>
+                <p class="lead text-center" id="sorter-results-info"></p>
+                
+                <div class="sorter-results-content d-flex flex-wrap justify-content-md-center">
+                    <!-- To be filled by results code -->
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>This sorter uses a modified version of the <a href="https://github.com/execfera/charasort">Touhou Sorter script</a> created by Frelia, all credits belong to those creators</p>
+            </div>
+    </main>
     <!-- </div> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -52,7 +59,7 @@
     <script src="js/jsrender.min.js"></script>
     <script src="js/sorter.js"></script>
     <script>
-        retrieveSorterResults();
+        // retrieveSorterResults();
     </script>
 </body>
 
