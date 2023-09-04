@@ -19,129 +19,122 @@
 </head>
 
 <body>
-    <div class="position-fixed fixed-top fixed-bottom d-flex flex-column justify-content-center align-items-center" style="transform: translateY(-135px);">
-        <img class="img-fluid logo my-5" src="img/logo/japari-logo.png">
-        <h1 class="display-4 lead text-center">We'll be back soon!</h1>
-        <p class="lead text-center mb-0">We're performing maintenance at the moment.</p>
-    </div>
-    <main style="display:none">
-        <div class="container my-3">
-            <div class="message-container">
-                <!-- <div class="alert alert-danger">Unable to load the Kemono Friends Sorter</div> -->
-            </div>
-    
-            <div class="sorter-loading">
-                <img class="img-fluid logo my-5" src="img/logo/japari-logo.png">
-                <!-- <h3 class="">Loading</h3> -->
-            </div>
-    
-            <div class="sorter">
-                <!-- <div class="form-group volume-slider">
-                    <label for="volume-slider"><i class="fas fa-volume-up "></i></label>
-                    <input type="range" class="form-control-range" id="volume-slider" min="0" max="100" value="50" step="2">
-                </div> -->
-                <p class="sorter-progress">
-                    This sort may take quite a bit of time to finish, so prepare some <a href="https://japari-library.com/wiki/Glossary#Japari_Buns" target="_blank">Japari Buns</a> for this <br/>
-                    This sort contains a total of <span id="character-count">0</span> friends, and will be updated to reflect future new friends!<br/>
-                    
-                    <br/>
-    
-                    Click on the Left, Right buttons to Start <br/>
-                    <span class="d-none d-md-block">Keyboard Shortcuts: <i class="fas fa-arrow-left"></i> Pick Left, <i class="fas fa-arrow-right"></i>: Pick Right, <i class="fas fa-arrow-up"></i>: Tie, <i class="fas fa-arrow-down"></i>: Undo<br/></span>
-                    Click on <i class="fas fa-info"></i> to learn more about the friend<br/>
-                    Click on <i class="fas fa-play"></i> to hear the friend's introduction lines (if any)</br>
-                    If you can't choose between two Friends click "Tie!", if you've made a mistake, click "Undo"<br/>
-                </p>
-                <div class="progress my-3">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="33" aria-valuemin="0"
-                        aria-valuemax="100" style="width:0%">0%</div>
-                </div>
-                <div class="sorter-picker">
-                    <div class="sort-left">
-                        <div class="pick">
-                            <img src="img/placeholder.png" class="img-fluid">
-                            <div class="friend-info">
-                                <p class="lead text-center mb-0 title"></p>
-                                <p class="text-center font-italic description"> "P-Please don't eat me!" -Kaban</p>
-                            </div>
-                        </div>
-                        <div class="picker-buttons">
-                            <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
-                            <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
-                        </div>
-                    </div>
-                    <div class="sort-function desktop d-none d-md-block">
-                        <div class="d-flex flex-column justify-content-between" style="height: 100%;">
-                            <button type="button" class="sort sort-tie btn btn-dark">Tie</button>
-                            <button type="button" class="sort sort-undo btn btn-dark">Undo</button>
-                            <button type="button" class="sort sort-save btn btn-danger">Save</button>
-                            <button type="button" class="sort sort-load btn btn-danger">Load</button>
-                        </div>
-                    </div>
-                    <div class="sort-right">
-                        <div class="pick">
-                            <img src="img/placeholder.png" class="img-fluid">
-                            <div class="friend-info">
-                                <p class="lead text-center mb-0 title"></p>
-                                <p class="text-center font-italic description"> "I won't eat you!" -Serval</p>
-                            </div>
-                        </div>
-                        <div class="picker-buttons">
-                            <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
-                            <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="sort-function mobile d-md-none">
-                    <div class="row mt-2">
-                        <button type="button" class="sort sort-tie col tie btn btn-dark">Tie</button>
-                        <button type="button" class="sort sort-undo col undo btn btn-dark">Undo</button>
-                    </div>
-                    <div class="sort-save">
-                        <div class="row mt-2">
-                            <button type="button" class="sort sort-save col btn save btn-danger">Save</button>
-                            <button type="button" class="sort sort-load col btn load btn-danger">Load</button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="d-flex flex-wrap justify-content-md-around justify-content-sm-start">
-                    <div class="sorter-settings">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="setting-hard">
-                            <label class="custom-control-label" for="setting-hard">Hard Mode</label>
-                        </div>
-                    </div>
-                    <div class="sorter-options">
-                        <!-- To be filled by code/server -->
-                    </div>
-                </div>
-            </div>
+    <div class="container my-3">
+        <div class="message-container">
+            <!-- <div class="alert alert-danger">Unable to load the Kemono Friends Sorter</div> -->
         </div>
-        <div class="sorter-results mx-3">
-            <hr>
-            <h5 class="text-center">Results</h5>
-            <p class="lead text-center" id="sorter-results-info"></p>
-    
-            <div class="input-group my-3">
-                <input type="text" id="sorter-results-url" class="form-control" placeholder="Click 'Create' to create a sharable url to share your results" readonly="readonly">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" id="sorter-results-create" type="button">Create</button>
-                </div>
-            </div>
-            <div class="sorter-results-content d-flex flex-wrap">
-                <!-- To be filled by results code -->
-            </div>
-        </div>
-    
-        <div class="container">
-            <hr>
-            <div class="text-center">
-                <p>This sorter uses a modified version of the <a href="https://github.com/execfera/charasort">Touhou Sorter script</a> created by Frelia, all credits belong to those creators</p>
-            </div>
-        </div>
-    </main>
 
+        <div class="sorter-loading">
+            <img class="img-fluid logo my-5" src="img/logo/japari-logo.png">
+            <!-- <h3 class="">Loading</h3> -->
+        </div>
+
+        <div class="sorter">
+            <!-- <div class="form-group volume-slider">
+                <label for="volume-slider"><i class="fas fa-volume-up "></i></label>
+                <input type="range" class="form-control-range" id="volume-slider" min="0" max="100" value="50" step="2">
+            </div> -->
+            <p class="sorter-progress">
+                This sort may take quite a bit of time to finish, so prepare some <a href="https://japari-library.com/wiki/Glossary#Japari_Buns" target="_blank">Japari Buns</a> for this <br/>
+                This sort contains a total of <span id="character-count">0</span> friends, and will be updated to reflect future new friends!<br/>
+                
+                <br/>
+
+                Click on the Left, Right buttons to Start <br/>
+                <span class="d-none d-md-block">Keyboard Shortcuts: <i class="fas fa-arrow-left"></i> Pick Left, <i class="fas fa-arrow-right"></i>: Pick Right, <i class="fas fa-arrow-up"></i>: Tie, <i class="fas fa-arrow-down"></i>: Undo<br/></span>
+                Click on <i class="fas fa-info"></i> to learn more about the friend<br/>
+                Click on <i class="fas fa-play"></i> to hear the friend's introduction lines (if any)</br>
+                If you can't choose between two Friends click "Tie!", if you've made a mistake, click "Undo"<br/>
+            </p>
+            <div class="progress my-3">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="33" aria-valuemin="0"
+                    aria-valuemax="100" style="width:0%">0%</div>
+            </div>
+            <div class="sorter-picker">
+                <div class="sort-left">
+                    <div class="pick">
+                        <img src="img/placeholder.png" class="img-fluid">
+                        <div class="friend-info">
+                            <p class="lead text-center mb-0 title"></p>
+                            <p class="text-center font-italic description"> "P-Please don't eat me!" -Kaban</p>
+                        </div>
+                    </div>
+                    <div class="picker-buttons">
+                        <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
+                        <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+                <div class="sort-function desktop d-none d-md-block">
+                    <div class="d-flex flex-column justify-content-between" style="height: 100%;">
+                        <button type="button" class="sort sort-tie btn btn-dark">Tie</button>
+                        <button type="button" class="sort sort-undo btn btn-dark">Undo</button>
+                        <button type="button" class="sort sort-save btn btn-danger">Save</button>
+                        <button type="button" class="sort sort-load btn btn-danger">Load</button>
+                    </div>
+                </div>
+                <div class="sort-right">
+                    <div class="pick">
+                        <img src="img/placeholder.png" class="img-fluid">
+                        <div class="friend-info">
+                            <p class="lead text-center mb-0 title"></p>
+                            <p class="text-center font-italic description"> "I won't eat you!" -Serval</p>
+                        </div>
+                    </div>
+                    <div class="picker-buttons">
+                        <a target="_blank" href="https://japari-library.com/wiki/Main_Page" class="btn btn-light btn-wiki" data-toggle="tooltip" data-placement="top" title="View Japari Wiki Entry"><i class="fas fa-info"></i></a>
+                        <button class="btn btn-light btn-play" disabled="disabled" data-toggle="tooltip" data-placement="top" title="Play intro line (if there's any)"><i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sort-function mobile d-md-none">
+                <div class="row mt-2">
+                    <button type="button" class="sort sort-tie col tie btn btn-dark">Tie</button>
+                    <button type="button" class="sort sort-undo col undo btn btn-dark">Undo</button>
+                </div>
+                <div class="sort-save">
+                    <div class="row mt-2">
+                        <button type="button" class="sort sort-save col btn save btn-danger">Save</button>
+                        <button type="button" class="sort sort-load col btn load btn-danger">Load</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-wrap justify-content-md-around justify-content-sm-start">
+                <div class="sorter-settings">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="setting-hard">
+                        <label class="custom-control-label" for="setting-hard">Hard Mode</label>
+                    </div>
+                </div>
+                <div class="sorter-options">
+                    <!-- To be filled by code/server -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sorter-results mx-3">
+        <hr>
+        <h5 class="text-center">Results</h5>
+        <p class="lead text-center" id="sorter-results-info"></p>
+
+        <div class="input-group my-3">
+            <input type="text" id="sorter-results-url" class="form-control" placeholder="Click 'Create' to create a sharable url to share your results" readonly="readonly">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="sorter-results-create" type="button">Create</button>
+            </div>
+        </div>
+        <div class="sorter-results-content d-flex flex-wrap">
+            <!-- To be filled by results code -->
+        </div>
+    </div>
+
+    <div class="container">
+        <hr>
+        <div class="text-center">
+            <p>This sorter uses a modified version of the <a href="https://github.com/execfera/charasort">Touhou Sorter script</a> created by Frelia, all credits belong to those creators</p>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
