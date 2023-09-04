@@ -38,6 +38,8 @@ function setCharacterFields(character) {
         $('#character-name').val(character.name);
         $('#character-image').val(character.image);
         
+        $('#character-audio').val('');
+        $('#character-line').val('');
         if(character.introduction) {
             $('#character-audio').val(character.introduction.audio);
             $('#character-line').val(character.introduction.translation);
